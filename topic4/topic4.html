@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phát và tắt đoạn audio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 70%;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        progress {
+            width: 50%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>TOPIC 4</h1>
+
+    <!-- Thêm nút "Trộn thứ tự" -->
+    <div>
+        <button onclick="shuffleAudioList()">Trộn thứ tự</button>
+    </div>
+
+    <table>
+        <tr>
+            <th>Audio</th>
+            <th>Controls</th>
+        </tr>
+        <!-- Sử dụng vòng lặp để tạo nút cho mỗi đoạn audio -->
+        <!-- Cập nhật index để thay đổi thứ tự theo mảng trộn -->
+        <!-- Cập nhật số lượng audio từ 8 lên 14 -->
+        <tr>
+            <td>1</td>
+            <td><button onclick="toggleAudio(0)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><button onclick="toggleAudio(1)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><button onclick="toggleAudio(2)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><button onclick="toggleAudio(3)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><button onclick="toggleAudio(4)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><button onclick="toggleAudio(5)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td><button onclick="toggleAudio(6)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td><button onclick="toggleAudio(7)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td><button onclick="toggleAudio(8)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td><button onclick="toggleAudio(9)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td><button onclick="toggleAudio(10)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td><button onclick="toggleAudio(11)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td><button onclick="toggleAudio(12)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td><button onclick="toggleAudio(13)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td><button onclick="toggleAudio(14)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td><button onclick="toggleAudio(15)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td><button onclick="toggleAudio(16)">Toggle</button></td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td><button onclick="toggleAudio(17)">Toggle</button></td>
+        </tr>
+   
+
+       
+        
+    </table>
+	<br><br><br><br>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .bottom-menu {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .menu-item {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .menu-item a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .menu-item a:hover {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Your page content goes here -->
+
+<div class="bottom-menu">
+    <div class="menu-item"><a href="../index.html">Trang Chủ ||</a></div>
+    <div class="menu-item"><a href="../topic1/topic1.html"> Topic1 ||</a></div>
+    <div class="menu-item"><a href="../topic2/topic2.html"> Topic2 ||</a></div>
+    <div class="menu-item"><a href="../topic3/topic3.html"> Topic3 ||</a></div>
+    <div class="menu-item"><a href="topic4.html"> Topic4</a></div>
+</div>
+    <div>
+        <progress id="audioProgress" value="0" max="100"></progress>
+        <audio id="audioPlayer"></audio>
+    </div>
+
+    <script>
+        var audioList = [
+            'audio1.mp3',
+            'audio2.mp3',
+            'audio3.mp3',
+            'audio4.mp3',
+            'audio5.mp3',
+            'audio6.mp3',
+            'audio7.mp3',
+            'audio8.mp3',
+            'audio9.mp3',
+            'audio10.mp3',
+            'audio11.mp3',
+            'audio12.mp3',
+            'audio13.mp3',
+            'audio14.mp3',
+            'audio15.mp3',
+            'audio16.mp3',
+            'audio17.mp3',
+            'audio18.mp3'
+        ];
+
+        var audioObjects = audioList.map(src => new Audio(src));
+        var audioStates = Array(audioList.length).fill(false);
+
+        var audioPlayer = document.getElementById('audioPlayer');
+        var audioProgress = document.getElementById('audioProgress');
+
+        function toggleAudio(index) {
+            const audio = audioObjects[index];
+
+            if (audioStates[index]) {
+                audio.pause();
+                audio.currentTime = 0;
+                audioStates[index] = false;
+                console.log('Đã tắt đoạn audio ' + (index + 1) + '.');
+            } else {
+                audio.play();
+                audioStates[index] = true;
+                console.log('Đã phát đoạn audio ' + (index + 1) + '.');
+            }
+        }
+
+        // Cập nhật thanh tiến trình theo thời gian của audio đang phát
+        audioPlayer.addEventListener('timeupdate', function () {
+            var progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            audioProgress.value = progress;
+        });
+
+        // Dừng tất cả audio khi một đoạn audio kết thúc
+        audioPlayer.addEventListener('ended', function () {
+            stopAllAudio();
+        });
+
+        function stopAllAudio() {
+            for (let i = 0; i < audioList.length; i++) {
+                const audio = audioObjects[i];
+                if (audioStates[i]) {
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audioStates[i] = false;
+                }
+            }
+            console.log('Đã tắt toàn bộ đoạn audio.');
+        }
+
+        // Hàm trộn thứ tự danh sách audio
+        function shuffleAudioList() {
+            for (let i = audioList.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [audioList[i], audioList[j]] = [audioList[j], audioList[i]];
+                [audioObjects[i], audioObjects[j]] = [audioObjects[j], audioObjects[i]];
+                [audioStates[i], audioStates[j]] = [audioStates[j], audioStates[i]];
+            }
+
+            // Cập nhật nút "Toggle" theo thứ tự mới
+            for (let i = 0; i < audioList.length; i++) {
+                const audioButton = document.getElementById('audioButton' + i);
+                audioButton.textContent = 'Toggle ' + (i + 1);
+            }
+
+            console.log('Đã trộn thứ tự đoạn audio.');
+        }
+    </script>
+</body>
+</html>
